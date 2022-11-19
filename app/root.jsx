@@ -1,3 +1,5 @@
+import styles from "~/styles/main.css";
+
 const {
   Links,
   LiveReload,
@@ -28,4 +30,9 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+// links is reserved word
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
 }
