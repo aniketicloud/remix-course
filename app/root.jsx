@@ -32,7 +32,7 @@ export default function App() {
   );
 }
 
-// links is reserved word
+// links is reserved word. remix wil look for this only in routes folder
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
 }
