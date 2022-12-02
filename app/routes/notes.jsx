@@ -27,7 +27,10 @@ export async function action({ request }) {
   noteData.id = new Date().toISOString();
   const updatedNotes = [...existingNotes, noteData];
   await storeNotes(updatedNotes);
-  // await new Promise((resolve, reject) => setTimeout(() => resolve(), 2000)); // delay to check loading
+
+  // delay to check loading on notes list page
+  // await new Promise((resolve, reject) => setTimeout(() => resolve(), 2000)); 
+
   return redirect("/notes");
 }
 
