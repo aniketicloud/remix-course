@@ -22,14 +22,18 @@ export async function loader() {
 export async function action({ request }) {
   const formData = await request.formData();
   const noteData = Object.fromEntries(formData);
-  // add validation...
+  if (noteData.title.trim().length < 5) {
+    return {
+      message: "Invalid title: Title must be at least 5 characters long",
+    };
+  }
   const existingNotes = await getStoredNotes();
   noteData.id = new Date().toISOString();
   const updatedNotes = [...existingNotes, noteData];
   await storeNotes(updatedNotes);
 
   // delay to check loading on notes list page
-  // await new Promise((resolve, reject) => setTimeout(() => resolve(), 2000)); 
+  // await new Promise((resolve, reject) => setTimeout(() => resolve(), 2000));
 
   return redirect("/notes");
 }
