@@ -48,6 +48,13 @@ export function links() {
   return [...newNoteLinks(), ...noteLinks()];
 }
 
+export function meta() {
+  return {
+    title: "All Notes",
+    description: "Manage your notes with ease",
+  };
+}
+
 // can be used per route level or root level or both
 export function CatchBoundary() {
   const caughtResponse = useCatch();
